@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffcccb;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 50px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+          }
+        p {
+            font-size: 24px;
+            color: #333;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 1s forwards;
+        }
+        .buttons {
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+        button {
+            font-size: 20px;
+            color: white;
+            background: #ff4081;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .no {
+            background: #ff4081;
+        }
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>🎉 yayyy its your special day 🎂</h1>
+    <p>Do you wanna see what i made for you? 🎁</p>
+    
+    <div class="buttons">
+        <a href="surprise.html"><button>Yes 🎁</button></a>
+        <button class="no" onclick="changeNoText()">No 😕</button>
+    </div>
+
+    <script>
+        function changeNoText() {
+            let noButton = document.querySelector(".no");
+            noButton.innerText = "There is no other option, choose Yes! 😂";
+        }
+    </script>
+</body>
+</html>
