@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Surprise!</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #ffcccb;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      position: relative;
+      display: inline-block;
+    }
+    img {
+      width: 50%;
+      border-radius: 5px;
+      position: relative;
+      z-index: 2; /* Image stays on top */
+    }
+    .heart-container {
+      position: absolute;
+      top: 5;
+      left: 0;
+      width: 150%;
+      height: 200%;
+      z-index: 0.9; /* Hearts stay behind the image */
+      pointer-events: none;
+    }
+    .heart {
+      position: absolute;
+      width: 150px;
+      height: 200px;
+      opacity: 0.9;
+      animation: float 10s infinite linear;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-150px) scale(1.2);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-300px) scale(1.4);
+        opacity: 0;
+      }
+    }
+    .message-box {
+      background-color: #f5f0f3eb;
+      color: #ff4081;
+      padding: 1px;
+      margin: 2px auto;
+      width: 70%;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="person image.png" alt="Your Picture"> <!-- Replace with actual image -->
+    <div class="heart-container"></div>
+  </div>
+  <div class="message-box">
+  <p style="margin-bottom: 10px;">Dear, CUTIE❤</p>
+  <p style="margin-top: 10;">
+     It's incredible that we've known each other for 2 months. 
+     <p> Yet it feels like we've been knowing each other for so long.
+     This is my way to show you how much you mean to me, because from the first time we met you've been so kind, 
+      understanding & caring. Your presence brings so much joy and comfort, and I truly appreciate having you in my life.
+      You're not only just a friend to me, you're so much more than that. 
+      I hope we stay together like this forever and continue to create more good memories.
+  </p>
+  <br>
+  <p>On your special day, I wish you the Happiest Birthday</p>
+</div>
+      
+    </p>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+
+      // SVG for outlined pink heart
+      heart.innerHTML = `
+        <svg width="25" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21s-8-4.8-8-10.2S7.6 3 12 7.2C16.4 3 20 6.8 20 10.8S12 21 12 21z" stroke="#ff4081" stroke-width="2" fill="none"/>
+        </svg>`;
+
+      const heartContainer = document.querySelector(".heart-container");
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+      heartContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>

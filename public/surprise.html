@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Surprise!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffcccb;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff337a;
+            position: relative;
+            z-index: 2;
+        }
+        img {
+            width: 25%;
+            margin-top: 0px;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .message-box {
+            background-color: #ff69b4;
+            color: white;
+            padding: 15px;
+            margin: 5px auto;
+            width: 25%;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+        .click-here {
+            margin-top: 5;
+            font-size: 16px;
+            color: white;
+            text-decoration: underline;
+            position: relative;
+        }
+        .ribbons {
+            position: absolute;
+            top: 3%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 105%;
+            z-index: 1;
+        }
+        .ribbons img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body onload="startConfetti()">  
+
+    <!-- 🎌 Vector Flag Ribbons -->
+    <div class="ribbons">
+        <img src="ballon.png" alt="Flag Ribbons">
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1>🎉 Surprise! 🎂</h1>
+    <p>Here’s a special cake just for you! 🍰</p>
+    <img src="cake.png" alt="Birthday Cake">
+    <p>Enjoy your birthday song! 🎶</p>
+    
+    <audio controls autoplay>
+        <source src="birthday.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="message-box"onclick="window.location.href='sup.html'">
+        Well, I have a small message for you!  
+        <div class="click-here">Click here</div>
+    </div>
+
+    <script>
+        function startConfetti() {
+            let duration = 12000; // Confetti duration 
+            let end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 15, // Increased confetti count
+                    angle: 60,
+                    spread: 80,
+                    origin: { x: 0 }
+                });
+
+                confetti({
+                    particleCount: 15,
+                    angle: 120,
+                    spread: 80,
+                    origin: { x: 1 }
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+    </script>
+
+</body>
+</html>
